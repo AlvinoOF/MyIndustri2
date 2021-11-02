@@ -40,7 +40,7 @@ class MasterAppsRole extends BaseController
 
     public function save_apps_role()
     {
-        $this->MasterAplikasiModel->save([
+        $this->MasterAppsRoleModel->save([
             'id_apps_role' => $this->request->getVar('id_apps_role'),
             'id_apps' => $this->request->getVar('id_apps'),
             'role' => $this->request->getVar('role'),
@@ -57,7 +57,7 @@ class MasterAppsRole extends BaseController
         $data = [
             'title' => 'Form Update Aplikasi',
             'validation' => \Config\Services::validation(),
-            'tbl_apps_role' => $this->MasterAplikasiModel->getMasterAplikasi($id_apps_role)
+            'tbl_apps_role' => $this->MasterAppsRoleModel->getMasterAplikasi($id_apps_role)
         ];
 
         return view('masterappsrole/edit_apps_role', $data);
@@ -65,7 +65,7 @@ class MasterAppsRole extends BaseController
 
     public function update_apps_role($id_apps_role)
     {
-        $this->MasterAplikasiModel->save([
+        $this->MasterAppsRoleModel->save([
             'id_apps_role' => $id_apps_role,
             'id_apps'      => $this->request->getVar('id_apps'),
             'role'         => $this->request->getVar('role'),

@@ -15,7 +15,7 @@
                         <h4 class="card-title mg-b-0">Daftar Aplikasi</h4>
                         <div class="d-flex my-xl-auto right-content">
                             <div class="mb-3 mb-xl-0" style="margin-right: 10px;">
-                                <a href="<?= base_url('/masteraplikasi/create_aplikasi'); ?>" class="btn btn-success"><i class="mdi mdi-plus"></i>Tambah Aplikasi</a>
+                                <a href="<?= base_url('/masteraplikasi/create'); ?>" class="btn btn-success"><i class="mdi mdi-plus"></i>Tambah Aplikasi</a>
                             </div>
                             <div class="mb-3 mb-xl-0">
                                 <button type="button" class="btn btn-primary"><i class="mdi mdi-refresh"></i> Refresh</button>
@@ -29,9 +29,10 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">ID Role</th>
+                                    <th scope="col">ID Apps</th>
                                     <th scope="col">Nama Aplikasi</th>
-                                    <th scope="col">Role</th>
+                                    <th scope="col">Link Aplikasi</th>
+                                    <th scope="col">Status Aplikasi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,7 +45,7 @@
                                         <td><?= $apps['link_apps']; ?></td>
                                         <td><?= $apps['status_apps']; ?></td>
                                         <td>
-                                            <a href="<?= base_url('masteraplikasi/' . $apps->id_apps); ?>" class="btn btn-info">Detail</a>
+
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

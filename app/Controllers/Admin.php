@@ -13,7 +13,7 @@ class Admin extends BaseController
     {
         $this->db      = \Config\Database::connect();
         $this->builder = $this->db->table('tbl_user');
-        $this->userModel = new UserModel();
+        $this->userModel = new UsersModel();
         $this->user = new UsersModel();
     }
 
@@ -26,11 +26,11 @@ class Admin extends BaseController
         return view('admin/index', $data);
     }
 
-    public function detail($id = null)
+    public function detail($id_user = null)
     {
         $data = array(
             'title' => 'User Detail',
-            'user' => $this->user->getUser($id)->getRow()
+            'user' => $this->user->getUser($id_user)->getRow()
         );
 
         if (empty($data['user'])) {
@@ -71,10 +71,24 @@ class Admin extends BaseController
     {
         $jabatan = $this->request->getVar('jabatan');
         $data = array(
-            'email' => $this->request->getVar('email'),
-            'nama'  => $this->request->getVar('nama'),
-            'password'  => $this->request->getVar('password'),
-            'status' => 1
+            'id_unit'       => $this->request->getVar('id_unit'),
+            'ktp'           => $this->request->getVar('ktp'),
+            'nama'          => $this->request->getVar('nama'),
+            'tempat_lahir'  => $this->request->getVar('tempat_lahir'),
+            'tgl_lahir'     => $this->request->getVar('tgl_lahir'),
+            'alamat'        => $this->request->getVar('alamat'),
+            'tlp'           => $this->request->getVar('tlp'),
+            'email'         => $this->request->getVar('email'),
+            'npp'           => $this->request->getVar('npp'),
+            'kontrak'       => $this->request->getVar('kontrak'),
+            'tgl_mulai'     => $this->request->getVar('tgl_mulai'),
+            'tgl_selesai'   => $this->request->getVar('tgl_selesai'),
+            'jabatan'       => $this->request->getVar('jabatan'),
+            'password'      => $this->request->getVar('password'),
+            'created_by'    => $this->request->getVar('created_by'),
+            'updated_by'    => $this->request->getVar('updated_by'),
+            'deleted_by'    => $this->request->getVar('deleted_by'),
+            'status'        => 1
         );
         $dt = new User($data);
         $this->userModel->withGroup($jabatan)->save($dt);
@@ -82,15 +96,28 @@ class Admin extends BaseController
         return redirect()->to('/admin');
     }
 
-    public function update($id)
+    public function update($id_user)
     {
-        $slug = url_title($this->request->getVar('username'), '-', true);
         $this->userModel->save([
-            'id'       => $id,
-            'email'    => $this->request->getVar('email'),
-            'username'  => $this->request->getVar('username'),
-            'password'  => $this->request->getVar('password'),
-            'slug'     => $slug
+            'id_user'       => $id_user,
+            'id_unit'       => $this->request->getVar('id_unit'),
+            'ktp'           => $this->request->getVar('ktp'),
+            'nama'          => $this->request->getVar('nama'),
+            'tempat_lahir'  => $this->request->getVar('tempat_lahir'),
+            'tgl_lahir'     => $this->request->getVar('tgl_lahir'),
+            'alamat'        => $this->request->getVar('alamat'),
+            'tlp'           => $this->request->getVar('tlp'),
+            'email'         => $this->request->getVar('email'),
+            'npp'           => $this->request->getVar('npp'),
+            'kontrak'       => $this->request->getVar('kontrak'),
+            'tgl_mulai'     => $this->request->getVar('tgl_mulai'),
+            'tgl_selesai'   => $this->request->getVar('tgl_selesai'),
+            'jabatan'       => $this->request->getVar('jabatan'),
+            'password'      => $this->request->getVar('password'),
+            'created_by'    => $this->request->getVar('created_by'),
+            'updated_by'    => $this->request->getVar('updated_by'),
+            'deleted_by'    => $this->request->getVar('deleted_by'),
+            'status'        => 1,
         ]);
 
         return redirect()->to('/admin');

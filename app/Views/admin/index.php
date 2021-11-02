@@ -15,36 +15,58 @@
                         <h4 class="card-title mg-b-0">User List</h4>
                         <div class="d-flex my-xl-auto right-content">
                             <div class="mb-3 mb-xl-0" style="margin-right: 10px;">
-                                <a href="<?= base_url('/admin/create'); ?>" class="btn btn-success"><i class="mdi mdi-plus"></i> Tambah</a>
-                            </div>
-                            <div class="mb-3 mb-xl-0">
-                                <button type="button" class="btn btn-primary"><i class="mdi mdi-refresh"></i> Refresh</button>
+                                <a href="<?= base_url('/admin/create'); ?>" class="btn btn-success"><i class="mdi mdi-plus"></i>Tambah</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
+                    <div class="table-responsive" style="overflow-x:auto;">
                         <table id="example1" class="table key-buttons text-md-nowrap">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Username</th>
+                                    <th scope="col">ID Unit</th>
+                                    <th scope="col">KTP</th>
+                                    <th scope="col">Nama</th>
+                                    <th scope="col">Tempat Lahir</th>
+                                    <th scope="col">Jenis Kelamin</th>
+                                    <th scope="col">Alamat</th>
+                                    <th scope="col">No. Telepon</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Role</th>
+                                    <th scope="col">NPP</th>
+                                    <th scope="col">Kontrak</th>
+                                    <th scope="col">Tanggal Mulai</th>
+                                    <th scope="col">Tanggal Selesai</th>
+                                    <th scope="col">Jabatan</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Gambar</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $i = 1; ?>
-                                <?php foreach ($tbl_user->getResult() as $user) : ?>
+                                <?php foreach ($tbl_user as $user) : ?>
                                     <tr>
                                         <th scope="row"><?= $i++; ?></th>
-                                        <td><?= $user->username; ?></td>
-                                        <td><?= $user->email; ?></td>
-                                        <td><?= $user->name; ?></td>
+                                        <td><?= $user['id_unit']; ?></td>
+                                        <td><?= $user['ktp']; ?></td>
+                                        <td><?= $user['nama']; ?></td>
+                                        <td><?= $user['tempat_lahir']; ?></td>
+                                        <td><?= $user['tgl_lahir']; ?></td>
+                                        <td><?= $user['jenis_kelamin']; ?></td>
+                                        <td><?= $user['alamat']; ?></td>
+                                        <td><?= $user['tlp']; ?></td>
+                                        <td><?= $user['email']; ?></td>
+                                        <td><?= $user['npp']; ?></td>
+                                        <td><?= $user['kontrak']; ?></td>
+                                        <td><?= $user['tgl_mulai']; ?></td>
+                                        <td><?= $user['tgl_selesai']; ?></td>
+                                        <td><?= $user['jabatan']; ?></td>
+                                        <td><?= $user['status']; ?></td>
+                                        <td><?= $user['profil_img']; ?></td>
                                         <td>
-                                            <a href="<?= base_url('admin/' . $user->userid); ?>" class="btn btn-info">Detail</a>
+                                            <a href="<?= base_url('admin/' . $user->id_user); ?>" class="btn btn-info">Detail</a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

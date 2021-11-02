@@ -8,7 +8,7 @@ class MasterAplikasiModel extends Model
 {
     protected $table = 'tbl_apps';
     protected $useTimestamps = true;
-    protected $allowedFields = ['id_apps', 'nama_apps', 'link_apps', 'status_apps'];
+    protected $allowedFields = ['id_apps', 'nama_apps', 'link_apps', 'status_apps', 'created_by', 'updated_by', 'deleted_by'];
 
     public function getAplikasi($id_apps = false)
     {

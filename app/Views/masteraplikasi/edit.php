@@ -2,28 +2,45 @@
 
 <?= $this->section('page-content'); ?>
 
-<div class="container-fluid">
-    <h1 class="h3 mb-4 text-gray-800">Edit Aplikasi</h1>
 
-    <form action="/masteraplikasi/update_aplikasi" method="post" enctype="multipart/form-data">
-        <?= csrf_field(); ?>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jautocalc@1.3.1/dist/jautocalc.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.13.4/jquery.mask.min.js"></script>
 
-        <div class="row mb-3">
-            <label for="nama_aplikasi" class="col-sm-2 col-form-label">Nama Aplikasi</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="nama_aplikasi" name="nama_aplikasi" value="<?= old('nama_aplikasi'); ?>">
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <h2 class="my-3">Form Edit Aplikasi</h2>
+
+            <form action="/masteraplikasi/update" method="post" enctype="multipart/form-data">
+                <?= csrf_field(); ?>
+
+                <div class="row mb-3">
+                    <label for="nama_apps" class="col-sm-2 col-form-label">Nama Aplikasi</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="nama_apps" name="nama_apps" value="<?= old('nama_aplikasi'); ?>">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="link_apps" class="col-sm-2 col-form-label">Link Aplikasi</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="link_apps" name="link_apps" value="<?= old('link_apps'); ?>">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="status_apps" class="col-sm-2 col-form-label">Status Aplikasi</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="status_apps" name="status_apps" value="<?= old('status_apps'); ?>">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+            <br><br>
+            <a href="/masteraplikasi">
+                <--- Kembali</a>
         </div>
-
-        <div class="row mb-3">
-            <label for="role_aplikasi" class="col-sm-2 col-form-label">Role Aplikasi</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="role_aplikasi" name="role_aplikasi" value="<?= old('role_aplikasi'); ?>">
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Edit</button>
-    </form>
-    <br><br>
-    <a href="/masteraplikasi">
-        <--- Kembali</a>
-            <?= $this->endSection(); ?>
+    </div>
+</div>
+<?= $this->endSection(); ?>

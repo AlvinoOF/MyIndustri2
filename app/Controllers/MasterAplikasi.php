@@ -27,7 +27,7 @@ class MasterAplikasi extends BaseController
         return view('masteraplikasi/index', $data);
     }
 
-    public function create_aplikasi()
+    public function create()
     {
         $data = [
             'title' => 'Form Tambah Aplikasi',
@@ -37,12 +37,14 @@ class MasterAplikasi extends BaseController
         return view('masteraplikasi/create', $data);
     }
 
-    public function save_aplikasi()
+    public function save()
     {
         $this->MasterAplikasiModel->save([
             'nama_apps' => $this->request->getVar('nama_apps'),
             'link_apps' => $this->request->getVar('link_apps'),
             'status_apps' => $this->request->getVar('status_apps'),
+            'created_by' => $this->request->getVar('created_by'),
+            'updated_by' => $this->request->getVar('updated_by')
         ]);
 
         session()->setFlashdata('pesan', 'Berhasil ditambahkan');
@@ -50,24 +52,26 @@ class MasterAplikasi extends BaseController
         return redirect()->to('/masteraplikasi');
     }
 
-    public function edit_aplikasi($id)
+    public function edit($id_apps)
     {
         $data = [
             'title' => 'Form Update Aplikasi',
             'validation' => \Config\Services::validation(),
-            'master_aplikasi' => $this->MasterAplikasiModel->getMasterAplikasi($id)
+            'master_aplikasi' => $this->MasterAplikasiModel->getMasterAplikasi($id_apps)
         ];
 
         return view('masteraplikasi/edit', $data);
     }
 
-    public function update_aplikasi($id_apps)
+    public function update($id_apps)
     {
         $this->MasterAplikasiModel->save([
             'id_apps'   => $id_apps,
             'nama_apps'    => $this->request->getVar('nama_apps'),
             'link_apps' => $this->request->getVar('link_apps'),
-            'status_apps' => $this->request->getVar('status_apps')
+            'status_apps' => $this->request->getVar('status_apps'),
+            'created_by' => $this->request->getVar('created_by'),
+            'updated_by' => $this->request->getVar('updated_by')
         ]);
 
         session()->setFlashdata('pesan', 'Berhasil diupdate');
@@ -75,9 +79,9 @@ class MasterAplikasi extends BaseController
         return redirect()->to('/masteraplikasi');
     }
 
-    public function delete_aplikasi($id)
+    public function delete($id_apps)
     {
-        $this->MasterAplikasiModel->delete($id);
+        $this->MasterAplikasiModel->delete($id_apps);
         session()->setFlashdata('pesan', 'Berhasil dihapus');
         return redirect()->to('/masteraplikasi');
     }

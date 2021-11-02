@@ -12,20 +12,27 @@
         <div class="col-8">
             <h2 class="my-3">Form Tambah Aplikasi</h2>
 
-            <form action="/masteraplikasi/save_aplikasi" method="post" enctype="multipart/form-data">
+            <form action="/masteraplikasi/save" method="post" enctype="multipart/form-data">
                 <?= csrf_field(); ?>
 
                 <div class="row mb-3">
-                    <label for="nama_aplikasi" class="col-sm-2 col-form-label">Nama Aplikasi</label>
+                    <label for="nama_apps" class="col-sm-2 col-form-label">Nama Aplikasi</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="nama_aplikasi" name="nama_aplikasi" value="<?= old('nama_aplikasi'); ?>">
+                        <input type="text" class="form-control" id="nama_apps" name="nama_apps" value="<?= old('nama_apps'); ?>">
                     </div>
                 </div>
 
                 <div class="row mb-3">
-                    <label for="role_aplikasi" class="col-sm-2 col-form-label">Role Aplikasi</label>
+                    <label for="link_apps" class="col-sm-2 col-form-label">Link Aplikasi</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="role_aplikasi" name="role_aplikasi" value="<?= old('role_aplikasi'); ?>">
+                        <input type="text" class="form-control" id="link_apps" name="link_apps" value="<?= old('link_apps'); ?>">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="status_apps" class="col-sm-2 col-form-label">Status Aplikasi</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="status_apps" name="status_apps" value="<?= old('status_apps'); ?>">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Tambah</button>
