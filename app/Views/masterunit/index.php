@@ -43,7 +43,6 @@
                                         <td><?= $unit['jenis_unit']; ?></td>
                                         <td><?= $unit['nama_unit']; ?></td>
                                         <td>
-                                            <a href="<?= base_url('masterunit/' . $unit->id_unit); ?>" class="btn btn-info">Detail</a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

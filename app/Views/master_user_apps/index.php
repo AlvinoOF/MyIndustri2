@@ -15,7 +15,7 @@
                         <h4 class="card-title mg-b-0">Daftar Role per Aplikasi</h4>
                         <div class="d-flex my-xl-auto right-content">
                             <div class="mb-3 mb-xl-0" style="margin-right: 10px;">
-                                <a href="<?= base_url('/masterappsrole/create'); ?>" class="btn btn-success"><i class="mdi mdi-plus"></i>Tambah role per Aplikasi</a>
+                                <a href="<?= base_url('/masteruserapps/create'); ?>" class="btn btn-success"><i class="mdi mdi-plus"></i>Tambah role per Aplikasi</a>
                             </div>
                             <div class="mb-3 mb-xl-0">
                                 <button type="button" class="btn btn-primary"><i class="mdi mdi-refresh"></i> Refresh</button>
@@ -33,19 +33,23 @@
                                     <th scope="col">ID Apps</th>
                                     <th scope="col">Role</th>
                                     <th scope="col">Status</th>
+                                    <th scope="col">Created By</th>
+                                    <th scope="col">Updated By</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $i = 1 + (6 * ($currentPage - 1)); ?>
-                                <?php foreach ($tbl_apps_role as $apps_role) : ?>
+                                <?php foreach ($tbl_user_apps as $user_apps) : ?>
                                     <tr>
                                         <th scope="row"><?= $i++; ?></th>
-                                        <td><?= $apps_role['id_apps_role']; ?></td>
-                                        <td><?= $apps_role['id_apps']; ?></td>
-                                        <td><?= $apps_role['role']; ?></td>
-                                        <td><?= $apps_role['status']; ?></td>
+                                        <td><?= $user_apps['id_apps_role']; ?></td>
+                                        <td><?= $user_apps['id_apps']; ?></td>
+                                        <td><?= $user_apps['role']; ?></td>
+                                        <td><?= $user_apps['status']; ?></td>
+                                        <td><?= $user_apps['created_by']; ?></td>
+                                        <td><?= $user_apps['updated_by']; ?></td>
                                         <td>
-                                            <a href="<?= base_url('masterappsrole/' . $apps_role->id_apps_role); ?>" class="btn btn-info">Detail</a>
+                                            <a href="<?= base_url('masteruserapps/' . $user_apps->id_apps_role); ?>" class="btn btn-info">Detail</a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

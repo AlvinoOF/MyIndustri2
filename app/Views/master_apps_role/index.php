@@ -15,7 +15,7 @@
                         <h4 class="card-title mg-b-0">Daftar Role per Aplikasi</h4>
                         <div class="d-flex my-xl-auto right-content">
                             <div class="mb-3 mb-xl-0" style="margin-right: 10px;">
-                                <a href="<?= base_url('/masterappsrole/create'); ?>" class="btn btn-success"><i class="mdi mdi-plus"></i>Tambah role per Aplikasi</a>
+                                <a href="<?= base_url('/master_apps_role/create'); ?>" class="btn btn-success"><i class="mdi mdi-plus"></i>Tambah role per Aplikasi</a>
                             </div>
                             <div class="mb-3 mb-xl-0">
                                 <button type="button" class="btn btn-primary"><i class="mdi mdi-refresh"></i> Refresh</button>
@@ -45,7 +45,7 @@
                                         <td><?= $apps_role['role']; ?></td>
                                         <td><?= $apps_role['status']; ?></td>
                                         <td>
-                                            <a href="<?= base_url('masterappsrole/' . $apps_role->id_apps_role); ?>" class="btn btn-info">Detail</a>
+                                            <a href="<?= base_url('masterappsrole/' . $apps_role['id_apps_role']); ?>" class="btn btn-info">Detail</a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
