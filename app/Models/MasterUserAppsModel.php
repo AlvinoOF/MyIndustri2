@@ -8,7 +8,7 @@ class MasterUserAppsModel extends Model
 {
     protected $table = 'tbl_user_apps';
     protected $useTimestamps = true;
-    protected $allowedFields = ['id_user_apps', 'id_apps', 'id_user', 'status'];
+    protected $allowedFields = ['id_user_apps', 'id_apps', 'id_user', 'status', 'created_by', 'updated_by', 'deleted_by'];
 
     public function getUserApps($id_user_apps = false)
     {
