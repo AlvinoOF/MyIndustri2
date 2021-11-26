@@ -28,7 +28,7 @@ class MasterAppsRole extends BaseController
         return view('masterappsrole/index', $data);
     }
 
-    public function create_apps_role()
+    public function create()
     {
         $data = [
             'title' => 'Form Tambah Role per Aplikasi',
@@ -38,7 +38,7 @@ class MasterAppsRole extends BaseController
         return view('masterappsrole/create', $data);
     }
 
-    public function save_apps_role()
+    public function save()
     {
         $this->MasterAppsRoleModel->save([
             'id_apps_role' => $this->request->getVar('id_apps_role'),
@@ -52,7 +52,7 @@ class MasterAppsRole extends BaseController
         return redirect()->to('/masterappsrole');
     }
 
-    public function edit_apps_role($id_apps_role)
+    public function edit($id_apps_role)
     {
         $data = [
             'title' => 'Form Update Aplikasi',
@@ -60,10 +60,10 @@ class MasterAppsRole extends BaseController
             'tbl_apps_role' => $this->MasterAppsRoleModel->getMasterAplikasi($id_apps_role)
         ];
 
-        return view('masterappsrole/edit_apps_role', $data);
+        return view('masterappsrole/edit', $data);
     }
 
-    public function update_apps_role($id_apps_role)
+    public function update($id_apps_role)
     {
         $this->MasterAppsRoleModel->save([
             'id_apps_role' => $id_apps_role,
@@ -77,7 +77,7 @@ class MasterAppsRole extends BaseController
         return redirect()->to('/masterappsrole');
     }
 
-    public function delete_apps_role($id_apps_role)
+    public function delete($id_apps_role)
     {
         $this->MasterAppsRoleModel->delete($id_apps_role);
         session()->setFlashdata('pesan', 'Berhasil dihapus');

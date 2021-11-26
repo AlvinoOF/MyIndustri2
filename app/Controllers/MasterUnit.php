@@ -42,7 +42,9 @@ class MasterUnit extends BaseController
     {
         $this->MasterUnitModel->save([
             'jenis_unit'       => $this->request->getVar('jenis_unit'),
-            'nama_unit' => $this->request->getVar('nama_unit')
+            'nama_unit' => $this->request->getVar('nama_unit'),
+            'created_by' => $this->request->getVar('created_by'),
+
         ]);
 
         session()->setFlashdata('pesan', 'Berhasil ditambahkan');
@@ -66,7 +68,9 @@ class MasterUnit extends BaseController
         $this->MasterUnitModel->save([
             'id_unit'   => $id_unit,
             'jenis_unit'       => $this->request->getVar('jenis_unit'),
-            'nama_unit' => $this->request->getVar('nama_unit')
+            'nama_unit' => $this->request->getVar('nama_unit'),
+            'updated_by' => $this->request->getVar('updated_by'),
+
         ]);
 
         session()->setFlashdata('pesan', 'Berhasil diupdate');

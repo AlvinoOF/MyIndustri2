@@ -40,11 +40,9 @@ class MasterAplikasi extends BaseController
     public function save()
     {
         $this->MasterAplikasiModel->save([
-            'nama_apps' => $this->request->getVar('nama_apps'),
-            'link_apps' => $this->request->getVar('link_apps'),
+            'nama_apps'   => $this->request->getVar('nama_apps'),
+            'link_apps'   => $this->request->getVar('link_apps'),
             'status_apps' => $this->request->getVar('status_apps'),
-            'created_by' => $this->request->getVar('created_by'),
-            'updated_by' => $this->request->getVar('updated_by')
         ]);
 
         session()->setFlashdata('pesan', 'Berhasil ditambahkan');
@@ -66,12 +64,10 @@ class MasterAplikasi extends BaseController
     public function update($id_apps)
     {
         $this->MasterAplikasiModel->save([
-            'id_apps'   => $id_apps,
-            'nama_apps'    => $this->request->getVar('nama_apps'),
-            'link_apps' => $this->request->getVar('link_apps'),
-            'status_apps' => $this->request->getVar('status_apps'),
-            'created_by' => $this->request->getVar('created_by'),
-            'updated_by' => $this->request->getVar('updated_by')
+            'id_apps'     => $id_apps,
+            'nama_apps'   => $this->request->getVar('nama_apps'),
+            'link_apps'   => $this->request->getVar('link_apps'),
+            'status_apps' => $this->request->getVar('status_apps')
         ]);
 
         session()->setFlashdata('pesan', 'Berhasil diupdate');
