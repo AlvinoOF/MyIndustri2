@@ -225,18 +225,18 @@
 									</svg></a>
 							</div>
 							<div class="dropdown main-profile-menu nav nav-item nav-link">
-								<a class="profile-user d-flex" href=""><img alt="" ></a>
+								<a class="profile-user d-flex" href=""><img alt=""></a>
 								<div class="dropdown-menu">
 									<div class="main-header-profile bg-primary p-3">
 										<div class="d-flex wd-100p">
 											<div class="main-img-user"><img alt="" class=""></div>
 											<div class="ml-3 my-auto">
-											
+
 											</div>
 										</div>
 									</div>
 									<a class="dropdown-item" href="#"><i class="bx bx-cog"></i> Edit Profile</a>
-									<a class="dropdown-item" href="<?= base_url('logout'); ?>"><i class="bx bx-log-out"></i> Logout</a>
+									<a class="dropdown-item" href="<?= base_url('Home/logout'); ?>"><i class="bx bx-log-out"></i> Logout</a>
 								</div>
 							</div>
 						</div>

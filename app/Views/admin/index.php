@@ -40,7 +40,6 @@
                                     <th scope="col">Tanggal Mulai</th>
                                     <th scope="col">Tanggal Selesai</th>
                                     <th scope="col">Jabatan</th>
-                                    <th scope="col">Gambar</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -63,7 +62,6 @@
                                         <td><?= $user->tgl_mulai; ?></td>
                                         <td><?= $user->tgl_selesai; ?></td>
                                         <td><?= $user->jabatan; ?></td>
-                                        <td><?= $user->profil_img; ?></td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>

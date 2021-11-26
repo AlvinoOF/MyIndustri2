@@ -16,7 +16,7 @@
                 <?= csrf_field(); ?>
 
                 <div class="row mb-3">
-                    <label for="ktp" class="col-sm-2 col-form-label">Username</label>
+                    <label for="ktp" class="col-sm-2 col-form-label">KTP</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="ktp" name="ktp">
                     </div>
@@ -46,10 +46,10 @@
                 <div class="row mb-3">
                     <label for="jenis_kelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
                     <div class="col-sm-10">
-                        <select id="jenis_kelamin" name="jenis_kelamin">
-                            <options value="L">L</options>
-                            <options value="P">P</options>
-                        </select>
+                        <input type="radio" name="gridRadios" id="gridRadios1" value="option1">
+                        <label for="gridRadios1">L</label>
+                        <input type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                        <label for="gridRadios2">P</label>
                     </div>
                 </div>
 
@@ -113,13 +113,6 @@
                     <label for="status" class="col-sm-2 col-form-label">Status</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="status" name="status">
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <label for="profil_img" class="col-sm-2 col-form-label">Gambar profil</label>
-                    <div class="col-sm-10">
-                        <input type="image" class="form-control" id="profil_img" name="profil_img">
                     </div>
                 </div>
 
