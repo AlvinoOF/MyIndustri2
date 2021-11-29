@@ -6,6 +6,7 @@ use CodeIgniter\Model;
 
 class MasterAppsRoleModel extends Model
 {
+    protected $primaryKey = 'id_apps_role';
     protected $table = 'tbl_apps_role';
     protected $useTimestamps = true;
     protected $allowedFields = ['id_apps_role', 'role', 'status', 'created_by', 'updated_by'];

@@ -6,6 +6,7 @@ use CodeIgniter\Model;
 
 class MasterUserAppsModel extends Model
 {
+    protected $primaryKey = 'id_user_apps';
     protected $table = 'tbl_user_apps';
     protected $useTimestamps = true;
     protected $allowedFields = ['id_user_apps', 'id_apps', 'id_user', 'status', 'created_by', 'updated_by', 'deleted_by'];

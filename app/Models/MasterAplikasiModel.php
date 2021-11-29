@@ -6,6 +6,7 @@ use CodeIgniter\Model;
 
 class MasterAplikasiModel extends Model
 {
+    protected $primaryKey = 'id_apps';
     protected $table = 'tbl_apps';
     protected $useTimestamps = true;
     protected $allowedFields = ['id_apps', 'nama_apps', 'link_apps'];

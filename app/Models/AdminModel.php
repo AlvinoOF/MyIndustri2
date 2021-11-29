@@ -8,7 +8,7 @@ class AdminModel extends Model
 {
     protected $table = 'tbl_user';
     protected $useTimestamps = true;
-    protected $allowedFields = ['id_user', 'id_unit', 'ktp', 'nama', 'tempat_lahir', 'tgl_lahir', 'jenis_kelamin', 'alamat', 'tlp', 'email', 'npp', 'kontrak', 'role', 'tgl_mulai', 'tgl_selesai', 'jabatan', 'status', 'profil_img', 'password', 'created_by', 'updated_by', 'deleted_by'];
+    protected $allowedFields = ['id_user', 'id_unit', 'ktp', 'nama', 'tempat_lahir', 'tgl_lahir', 'jenis_kelamin', 'alamat', 'tlp', 'email', 'npp', 'kontrak', 'tgl_mulai', 'tgl_selesai', 'jabatan', 'status', 'profil_img', 'password', 'created_by', 'updated_by', 'deleted_by'];
 
     public function getUser($id_user = false)
     {

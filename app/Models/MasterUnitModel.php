@@ -6,6 +6,7 @@ use CodeIgniter\Model;
 
 class MasterUnitModel extends Model
 {
+    protected $primaryKey = 'id_unit';
     protected $table = 'tbl_unit';
     protected $useTimestamps = true;
     protected $allowedFields = ['jenis_unit', 'nama_unit'];
