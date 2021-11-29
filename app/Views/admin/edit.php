@@ -23,7 +23,7 @@
         </div>
 
         <div class="row mb-3">
-            <label for="tempat_lahir" class="col-sm-2 col-form-label">Jabatan</label>
+            <label for="tempat_lahir" class="col-sm-2 col-form-label">Tempat Lahir</label>
             <div class="col-sm-10">
                 <textarea name="tempat_lahir" class="form-control" id="tempat_lahir"></textarea>
             </div>
@@ -37,7 +37,7 @@
         </div>
 
         <div class="row mb-3">
-            <label for="jenis_kelamin" class="col-sm-2 col-form-label">Jabatan</label>
+            <label for="jenis_kelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
             <div class="col-sm-10">
                 <select id="jenis_kelamin" name="jenis_kelamin">
                     <options value="L">L</options>
@@ -47,7 +47,7 @@
         </div>
 
         <div class="row mb-3">
-            <label for="alamat" class="col-sm-2 col-form-label">Jabatan</label>
+            <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
             <div class="col-sm-10">
                 <textarea name="alamat" class="form-control" id="alamat"></textarea>
             </div>

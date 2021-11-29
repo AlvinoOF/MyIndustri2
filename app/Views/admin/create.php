@@ -16,6 +16,17 @@
                 <?= csrf_field(); ?>
 
                 <div class="row mb-3">
+                    <label for="id_unit" class="col-sm-2 col-form-label">ID Unit</label>
+                    <div class="col-sm-10">
+                        <select name="id_unit" id="id_unit" class="form-control">
+                            <?php foreach ($tbl_unit as $unit) : ?>
+                                <option value="<?= $unit['id_unit'] ?>"><?= $unit['jenis_unit']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
                     <label for="ktp" class="col-sm-2 col-form-label">KTP</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="ktp" name="ktp">
@@ -46,9 +57,9 @@
                 <div class="row mb-3">
                     <label for="jenis_kelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
                     <div class="col-sm-10">
-                        <input type="radio" name="gridRadios" id="gridRadios1" value="option1">
+                        <input type="radio" name="jenis_kelamin" id="gridRadios1" value="L" required>
                         <label for="gridRadios1">L</label>
-                        <input type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                        <input type="radio" name="jenis_kelamin" id="gridRadios2" value="P" required>
                         <label for="gridRadios2">P</label>
                     </div>
                 </div>

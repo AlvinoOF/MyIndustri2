@@ -26,6 +26,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
+                                    <th scope="col">ID Unit</th>
                                     <th scope="col">KTP</th>
                                     <th scope="col">Nama</th>
                                     <th scope="col">Tempat Lahir</th>
@@ -36,7 +37,6 @@
                                     <th scope="col">Email</th>
                                     <th scope="col">NPP</th>
                                     <th scope="col">Kontrak</th>
-                                    <th scope="col">Role</th>
                                     <th scope="col">Tanggal Mulai</th>
                                     <th scope="col">Tanggal Selesai</th>
                                     <th scope="col">Jabatan</th>
@@ -48,6 +48,7 @@
                                 <?php foreach ($tbl_user->getResult() as $user) : ?>
                                     <tr>
                                         <th scope="row"><?= $i++; ?></th>
+                                        <td><?= $user->jenis_unit; ?></td>
                                         <td><?= $user->ktp; ?></td>
                                         <td><?= $user->nama; ?></td>
                                         <td><?= $user->tempat_lahir; ?></td>
@@ -58,7 +59,6 @@
                                         <td><?= $user->email; ?></td>
                                         <td><?= $user->npp; ?></td>
                                         <td><?= $user->kontrak; ?></td>
-                                        <td><?= $user->role; ?></td>
                                         <td><?= $user->tgl_mulai; ?></td>
                                         <td><?= $user->tgl_selesai; ?></td>
                                         <td><?= $user->jabatan; ?></td>
