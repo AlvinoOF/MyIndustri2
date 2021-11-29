@@ -3,6 +3,9 @@
 namespace App\Controllers;
 
 use App\Models\UsersModel;
+use App\Models\AdminModel;
+use App\Models\MasterUnitModel;
+
 
 class Admin extends BaseController
 {
@@ -13,15 +16,15 @@ class Admin extends BaseController
     {
         $this->db      = \Config\Database::connect();
         $this->builder = $this->db->table('tbl_user');
-        $this->userModel = new UsersModel();
         $this->user = new UsersModel();
+        $this->MasterUnitModel = new MasterUnitModel();
     }
 
     public function index()
     {
         $data = array(
             'title' => 'User List',
-            'users' => $this->user->getUser()
+            'tbl_user' => $this->user->getUser()
         );
         return view('admin/index', $data);
     }
@@ -45,7 +48,9 @@ class Admin extends BaseController
         $data = [
             'title' => 'Form Tambah User',
             'validation' => \Config\Services::validation(),
-            'roles' => $this->user->getRole()
+            // 'roles' => $this->user->getRole()
+            // 'tbl_unit' => $this->user->getUnit()
+            'tbl_unit' => $this->MasterUnitModel->paginate(6, 'tbl_unit'),
         ];
 
         return view('admin/create', $data);
@@ -69,13 +74,20 @@ class Admin extends BaseController
 
     public function save()
     {
-        $jabatan = $this->request->getVar('jabatan');
+        // $session = \Config\Services::session();
+        // $jabatan = $session->get('jabatan');
+        // var_dump($jabatan);
+        // exit;
+
+        $builder       = $this->db->table('tbl_user');
         $data = array(
-            'id_unit'       => $this->request->getVar('id_unit'),
+
+            'id_unit'           => $this->request->getVar('id_unit'),
             'ktp'           => $this->request->getVar('ktp'),
             'nama'          => $this->request->getVar('nama'),
             'tempat_lahir'  => $this->request->getVar('tempat_lahir'),
             'tgl_lahir'     => $this->request->getVar('tgl_lahir'),
+            'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
             'alamat'        => $this->request->getVar('alamat'),
             'tlp'           => $this->request->getVar('tlp'),
             'email'         => $this->request->getVar('email'),
@@ -84,14 +96,13 @@ class Admin extends BaseController
             'tgl_mulai'     => $this->request->getVar('tgl_mulai'),
             'tgl_selesai'   => $this->request->getVar('tgl_selesai'),
             'jabatan'       => $this->request->getVar('jabatan'),
-            'password'      => $this->request->getVar('password'),
-            'created_by'    => $this->request->getVar('created_by'),
             'updated_by'    => $this->request->getVar('updated_by'),
             'deleted_by'    => $this->request->getVar('deleted_by'),
             'status'        => 1
         );
-        $dt = new User($data);
-        $this->userModel->withGroup($jabatan)->save($dt);
+
+        // $this->controller = \App\Controllers\User();
+        $builder->insert($data);
 
         return redirect()->to('/admin');
     }
@@ -100,11 +111,12 @@ class Admin extends BaseController
     {
         $this->userModel->save([
             'id_user'       => $id_user,
-            'id_unit'       => $this->request->getVar('id_unit'),
+            'id_unit'           => $this->request->getVar('id_unit'),
             'ktp'           => $this->request->getVar('ktp'),
             'nama'          => $this->request->getVar('nama'),
             'tempat_lahir'  => $this->request->getVar('tempat_lahir'),
             'tgl_lahir'     => $this->request->getVar('tgl_lahir'),
+            'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
             'alamat'        => $this->request->getVar('alamat'),
             'tlp'           => $this->request->getVar('tlp'),
             'email'         => $this->request->getVar('email'),
@@ -113,11 +125,9 @@ class Admin extends BaseController
             'tgl_mulai'     => $this->request->getVar('tgl_mulai'),
             'tgl_selesai'   => $this->request->getVar('tgl_selesai'),
             'jabatan'       => $this->request->getVar('jabatan'),
-            'password'      => $this->request->getVar('password'),
-            'created_by'    => $this->request->getVar('created_by'),
             'updated_by'    => $this->request->getVar('updated_by'),
             'deleted_by'    => $this->request->getVar('deleted_by'),
-            'status'        => 1,
+            'status'        => 1
         ]);
 
         return redirect()->to('/admin');
